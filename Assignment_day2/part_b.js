@@ -88,6 +88,88 @@ for(i of letter){
         count_vowel++;
     }
 }
-console.log("Wovels in "+ letter + "=  " + count_vowel);
+console.log("Wovels in "+ letter + " =  " + count_vowel);
 
-// Done 21 out of 25
+// 22: Fibonacci series
+
+let n = 5;
+let first = 0, second = 1;
+if(n>=1) console.log(first);
+if(n>=2) console.log(second);
+for(let i=2; i<=n; i++){
+    let next = first+second;
+    first = second;
+    second = next;
+    console.log(next);
+    //Process.stdout.write(next);
+}
+console.log("-----------------------------\n");
+
+// 23: to retuen min and max from an array
+
+function find_min_max(arr){
+    if(arr.length === 0){
+        return {min:undefined, max:undefined}
+    }
+    let min = arr[0];
+    let max = arr[0];
+    for(let i=0; i<arr.length; i++){
+        if(arr[i] < min) min = arr[i];
+        if(arr[i] > max) max = arr[i];
+    }
+    return {min: min, max:max}
+}
+let nums = [2, 43, 56, 23, 5, 0];
+console.log(find_min_max(nums));
+console.log("-----------------------------\n");
+
+// 24: Switch case to built Simple Menu Program
+
+function add(a,b){return a+b}
+function sub(a,b){return a-b}
+function mul(a,b){return a*b}
+function div(a,b){return a/b}
+let fun = 'm';
+let a = 5, b = 7;
+console.log("Use a to Add, s to Subtract, m to Multiply, d to Divide");
+switch(fun){
+    case "a":
+        console.log("a + b = ",add(a,b));
+        break;
+    case "s":
+        console.log("a - b = ",sub(a,b));
+        break;
+    case "m":
+        console.log("a * b = ",mul(a,b));
+        break;
+    case "d":
+        console.log("a / b = ",div(a,b));
+        break;
+    default:
+        console.log("Enter the Correct input !!");
+}
+console.log("-----------------------------\n");
+
+// 25: To check Armstrong Number
+
+function check_arm(arm){
+    let arm_sum = 0;
+    let isarmstrong = true;
+    let arm_arr = arm.toString().split('').map(Number) || [];
+    let pow = arm_arr.length;
+    for(val of arm_arr){
+        arm_sum += val**pow;
+    }
+    if(arm === arm_sum){
+        isarmstrong = true;
+    }else{
+        isarmstrong = false
+    }
+    return isarmstrong;
+}
+let check_armstrong = check_arm(153);
+if(check_armstrong){
+    console.log("The Number is Armstrong!");
+}else{
+    console.log("The Number is not Armstrong");
+}
