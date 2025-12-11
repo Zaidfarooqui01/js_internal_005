@@ -66,4 +66,9 @@ console.log(doubled);
 let numbers = [10,25,30,5,60];
 console.log(numbers.filter(n => n>20));
 
-console.log("Sum of num[] = ",num.reduce((acc, val)=> acc +val, 0));
+console.log("Sum of num[] = ",num.reduce((acc, val)=> acc + val, 0)); 
+//acc->current index at which loop is running
+//val->cuurent value of the array
+// 0 -> initial index for the operations performed
+
+console.log("-----------------------------\n");
