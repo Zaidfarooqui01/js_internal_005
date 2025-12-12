@@ -16,12 +16,12 @@
     
     <button id="bid2">Red</button>
 	<br><br>
-	<form id="fid" style="border:1px solid red"; align:center>
-		<input id="inpu1" type="text" placeholder="Enter Your Name"></input><br>
-		<p id="msg" style=color:"red"></p>
+	<form id="fid" style="border:1px solid red; align:center">
+		<input id="input1" type="text" placeholder="Enter Your Name"></input><br>
+		<p id="msg1" style=color:"red"></p>
 		<br><br>
-		<input id="inpu2" type="password" placeholder="Enter Your Password"></input><br>
-		<p id="msg2" style=color:"red"></p><br><br>
+		<input id="input2" type="password" placeholder="Enter Your Password"></input><br>
+		<p id="msg2" style="color:red"></p><br><br>
 		<button type="submit"> Submit </button>
 		
 	</form>
@@ -30,26 +30,27 @@
 
 	document.getElementById("fid").addEventListener("submit",function(event){
 		event.preventDefault();
-		let n = document.getElementById("input1");
-		let p = document.getElementById("input2");
+		let n = document.getElementById("input1").value.trim();
 
-		if(n===""){
-			errorName.innerHTML="Name cannot be Empty";
-			}else{
+		let p = document.getElementById("input2").value.trim();
+		let errorN=document.getElementById("msg1");
+		let errorP=document.getElementById("msg2");
+		if(n==""){
+			error.innerHTML="Name cannot be Empty";
+		}else{
+			error.innerHTML="Name cannot be Empty";
 			error.style.color="green";
 			
 			}
-	}
-		if(p===""){
-			errorName.innerHTML="Password cannot be Empty";
-			}else{
-			error.style.color="green";
+	
+		if(p==""){
+			errorP.innerHTML="Password cannot be Empty";
+		}else{
+			errorP.style.color="green";
+			errorP.innerHTML="Name cannot be Empty";
 			
 			}
 	});
-
-	let errName = document.getElementById("msg");
-	let errPas = document.getElementById("msg2");
 	
 	
 
