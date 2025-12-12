@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<style>
+    p {
+        display: inline;
+    }
+</style>
+
+<body style="background-color: aquamarine;">
+    <h2 style="text-align: center;">Image Toggler</h2>
+
+
+    <div id="content" style="border:1px solid black; padding: 20px; margin: 20px; text-align: center;">
+
+        <img id="image" src="D:\Pictures\pics\b.jpg" alt="Image" width="200" height="200">
+    </div>
+    <center>
+        <button id="next" title="Click for next Image">Next.....</button>
+        <button id="pre" title="click for previous image">Previous</button>
+
+        <br><br>
+
+        <h3>Para Magic</h3>
+        <p id="pid1">Magic Para</p>
+        <p id="emoji" style="visibility: hidden;">🧐</p>
+        <p id="eye" style="visibility: hidden;">👁️</p><br><br>
+        <button id="show">Show Para</button>
+        <button id="hide">Hide Para</button>
+    </center>
+</body>
+<script>
+    let btn1 = document.getElementById("next");
+    btn1.addEventListener("click", function () {
+        document.getElementById("image").src = "D:\\Pictures\\pics\\c.jpg";
+    });
+    let btn2 = document.getElementById("pre");
+
+    btn2.addEventListener("click", function () {
+        document.getElementById("image").src = "D:\\Pictures\\pics\\b.jpg";
+    });
+
+    let showbtn = document.getElementById("show");
+    let hidebtn = document.getElementById("hide");
+
+    showbtn.addEventListener("click", function () {
+        document.getElementById("pid1").style.visibility = "visible";
+        document.getElementById("eye").style.visibility = "visible";
+    });
+
+    hidebtn.addEventListener("click", function () {
+        document.getElementById("pid1").style.visibility = "hidden";
+        document.getElementById("emoji").style.visibility = "visible";
+    });
+</script>
+
+</html>
