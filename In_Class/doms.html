@@ -14,15 +14,46 @@
     <br><br>
     
     
-    <button id="bid1">Second</button> 
     <button id="bid2">Red</button>
 	<br><br>
-	<form style="border:1px solid red; ">
-		<input type="text" placeholder="Enter Your Name"></input><br><br>
-		<input type="password" placeholder="Enter Your Password"></input><br><br>
+	<form id="fid" style="border:1px solid red"; align:center>
+		<input id="inpu1" type="text" placeholder="Enter Your Name"></input><br>
+		<p id="msg" style=color:"red"></p>
+		<br><br>
+		<input id="inpu2" type="password" placeholder="Enter Your Password"></input><br>
+		<p id="msg2" style=color:"red"></p><br><br>
 		<button type="submit"> Submit </button>
 		
 	</form>
+
+	<script>
+
+	document.getElementById("fid").addEventListener("submit",function(event){
+		event.preventDefault();
+		let n = document.getElementById("input1");
+		let p = document.getElementById("input2");
+
+		if(n===""){
+			errorName.innerHTML="Name cannot be Empty";
+			}else{
+			error.style.color="green";
+			
+			}
+	}
+		if(p===""){
+			errorName.innerHTML="Password cannot be Empty";
+			}else{
+			error.style.color="green";
+			
+			}
+	});
+
+	let errName = document.getElementById("msg");
+	let errPas = document.getElementById("msg2");
+	
+	
+
+	</script>
 	
 
 
