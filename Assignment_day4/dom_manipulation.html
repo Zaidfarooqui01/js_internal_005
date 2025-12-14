@@ -11,13 +11,15 @@
     p {
         display: inline;
     }
+    
+    
 </style>
 
 <body style="background-color: aquamarine;">
     <h2 style="text-align: center;">Image Toggler</h2>
+<button id="theme">Toggle theme</button>
 
-
-    <div id="content" style="border:1px solid black; padding: 20px; margin: 20px; text-align: center;">
+    <div id="content" style="border:1px solid black; border-radius: 10px; padding: 20px; margin: 20px; text-align: center;">
 
         <img id="image" src="D:\Pictures\pics\b.jpg" alt="Image" width="200" height="200">
     </div>
@@ -33,9 +35,30 @@
         <p id="eye" style="visibility: hidden;">👁️</p><br><br>
         <button id="show">Show Para</button>
         <button id="hide">Hide Para</button>
-    </center>
+        <br><br>
+        <button id="adboxButton" >Click to Add Boxes</button>
+   
+    <form style="border:2px solid black; padding:30px; width:300px; margin:20px;">
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="Enter your name"><br><br>
+        <label for="email">Email:</label>
+        <input id="email" type="email" placeholder="Enter your email">
+        <br><br>
+        <button id="submitForm" type="submit">Submit</button>&nbsp;&nbsp;<button type="reset">Clear</button>
+        <br><br>
+        <textarea id="txt" rows="4" cols="30" placeholder="Your Entered Name and E-mail will appear here"></textarea>
+    </form>
+    <br><br>
+
+    <h3>Todo List</h3><br>
+    <p>Add your Tasks: &nbsp;</p>
+    <button id="addTaskBtn" type="button">Add Task</button>
+
+
+ </center>
 </body>
 <script>
+    // Image Toggle Functionality
     let btn1 = document.getElementById("next");
     btn1.addEventListener("click", function () {
         document.getElementById("image").src = "D:\\Pictures\\pics\\c.jpg";
@@ -46,6 +69,7 @@
         document.getElementById("image").src = "D:\\Pictures\\pics\\b.jpg";
     });
 
+    // Paragraph Show/Hide Functionality
     let showbtn = document.getElementById("show");
     let hidebtn = document.getElementById("hide");
 
@@ -58,6 +82,70 @@
         document.getElementById("pid1").style.visibility = "hidden";
         document.getElementById("emoji").style.visibility = "visible";
     });
+
+    // Add Boxes Functionality
+    let btnbox=document.getElementById("adboxButton");
+    btnbox.insertAdjacentHTML('afterend', '<br>');
+    btnbox.addEventListener("click", function(){
+        let newDiv = document.createElement('div');
+        newDiv.style.width='100px';
+        newDiv.style.height='100px';
+        newDiv.style.backgroundImage='linear-gradient(to bottom, red, yellow, green)';
+        newDiv.style.padding='1px';
+        newDiv.style.borderRadius='10px';
+        newDiv.style.margin='18px';
+        newDiv.style.display='inline-block';
+        btnbox.nextSibling.insertAdjacentElement('afterend', newDiv);
+        //document.body.appendChild(newDiv);
+        
+        let boxCount = document.querySelectorAll('div').length - 1; 
+
+        if(boxCount == 9){
+            btnbox.disabled=true;
+            alert("You have reached the maximum limit of boxes.");
+        }
+    });
+
+    // Form Submission Functionality
+    let submitBtn = document.getElementById("submitForm");
+    submitBtn.addEventListener("click", function(event){
+        event.preventDefault(); 
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let textarea = document.getElementById("txt");
+        textarea.value = "Name: " + name + "\nEmail: " + email;
+    });
+
+    // Todo List Functionality
+    let addTaskBtn = document.getElementById("addTaskBtn");
+    addTaskBtn.addEventListener("click", function(){
+        let task=prompt("Enter your task:");
+        if(task){
+            let tasks = document.createElement("ul");
+            let taskItem = document.createElement("li");
+            taskItem.textContent = task;//this ensures->.<li>prompt("Enter your task:")</li>
+            tasks.appendChild(taskItem);
+            document.body.appendChild(tasks);
+        }
+    });
+
+    // Theme Toggle Functionality
+    let themeBtn = document.getElementById("theme");
+    themeBtn.addEventListener("click", function(){
+        let body = document.body;
+        if(body.style.backgroundColor === "aquamarine"){
+            body.style.backgroundColor = "lightgray";
+            themeBtn.style.color="black";
+            themeBtn.style.backgroundColor="white";
+            themeBtn.innerText="Light Mode";
+        } else {
+            body.style.backgroundColor = "aquamarine";
+            themeBtn.style.color="white";
+            themeBtn.style.backgroundColor="black";
+            themeBtn.innerText="Dark Mode";
+        }
+    });
+
 </script>
 
 </html>
