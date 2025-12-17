@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container1">
+        <div id="logo"><img src="D:\Pictures\pics\b.jpg" alt="LOGO1"></div>
+        <div id="heading">
+            <h2>HCL Registration </h2>
+        </div>
+        <div id="rightlogo"><img src="D:\Pictures\pics\mynamelogo.jpg" alt="LOGO2"></div>
+    </div>
+    <div id="menuBar">
+        Home&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;About
+        Us&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Services&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Contact
+        Us&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Help
+
+    </div>
+
+    <div id="container2">
+        <div id="info">
+            <h3>Information</h3>
+            <p>Projects<br>
+                Assessments<br>
+                Assignments<br>
+                Notes<br>
+                Materials<br>
+            </p>
+        </div>
+        <div id="center">
+            <center>
+                <h3>Notice</h3>
+                <marquee behavior="scroll" direction="up" scrollamount="5" onmouseover="stop();" onmouseout="start();">
+                    <p style="align-items: center;"><a href="">Exam Form<br></a>
+                        <a href="">Resume<br></a>
+                        <a href="">Notice<br></a>
+                    </p>
+                </marquee>
+            </center>
+        </div>
+        <div id="rightside">
+            <form action="showUserData.html" method="get" id="fid">
+                <table>
+                    <tr>
+                        <td><label for="username">Username:</label></td>
+                        <td><input id="usern" type="text" name="username" placeholder="Enter your username"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p id="errn"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td><input id="userp" type="password" name="password" placeholder="Enter your Password"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p id="errp"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button id="loginButton" type="submit">Login</button>&nbsp;&nbsp;<button
+                                type="reset">Clear</button>
+                    <tr align="center">
+                        <td colspan="2">
+                            <p id="newUser"><a href="registration.html">New User? Register Here</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+    </div>
+    <script>
+        document.getElementById("fid").addEventListener("submit", function (event) {
+            const username = document.getElementById("usern").value.trim();
+            const password = document.getElementById("userp").value.trim();
+
+            const errn = document.getElementById("errn");
+            const errp = document.getElementById("errp");
+
+            errn.innerHTML = "";
+            errp.innerHTML = "";
+
+            let valid = true;
+
+            if (username === "") {
+                errn.innerHTML = "Username cannot be empty";
+                errn.className = "error";
+                valid = false;
+            }
+
+            if (password === "") {
+                errp.innerHTML = "Password cannot be empty";
+                errp.className = "error";
+                valid = false;
+            }
+
+            if (!valid) {
+                event.preventDefault(); // 🚫 stop redirect
+            }
+        });
+    </script>
+
+</body>
+
+</html>

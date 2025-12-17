@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login Data</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="userDataPage">
+
+    <div class="result-card">
+        <h2 class="success">Login Successful!</h2>
+
+        <p><strong>Username:</strong> <span id="username"></span></p>
+        <p><strong>Password:</strong> <span id="password"></span></p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        document.getElementById("username").innerText =
+            params.get("username") || "N/A";
+
+        document.getElementById("password").innerText =
+            params.get("password") || "N/A";
+    </script>
+
+</body>
+</html>
