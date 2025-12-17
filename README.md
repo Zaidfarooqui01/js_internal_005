@@ -16,11 +16,12 @@ The JavaScript assessment implements a simple **web-based user registration and 
 - Home page acts as the entry point of the application
 - Login functionality with basic validation
 - Registration page accessible from the home page
-
+![alt text](image.png)
 ### 🔹 How to Access Registration Page
 1. Open the **Home page** (`index.html`) inside the `Final_Project` folder
 2. Click on the link:
    **“New User? Register Here”**
+   ![alt text](image-1.png)
 4. This redirects to the **Registration Page**, where the user can enter details and submit the form
 
 The project demonstrates:
