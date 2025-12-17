@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="hd1">This is registration page</h1>
+
+
+    <script>
+        let errn=document.getElementById("usern").value;
+        let errp=document.getElementById("userp").value;
+        document.getElementById("fid").addEventListener("submit", function (event) {
+            event.preventDefault();
+        });
+        if (username === "" || password === "") {
+            alert("Please fill all the fields");
+            return false;
+        }
+        else {
+            let params = new URLSearchParams(window.location.search);
+            let ref_name = params.get("usern");
+            let ref_pass = params.get("userp");
+            alert("Login Successful");
+
+            let hd = document.getElementById("hd1");
+            hd.innerHTML = `Welcome! ${ref_name}<br> your Password is : ${ref_pass}`;
+        }
+    </script>
+
+
+</body>
+
+</html>
